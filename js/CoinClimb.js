@@ -1,44 +1,46 @@
 let canvas = document.getElementById("gameCanvas");
 let ctx = canvas.getContext("2d");
-const player = document.getElementById("playerOne");
-const startingPoint = document.getElementById("startingPoint");
+//const startingPoint = document.getElementById("startingPoint");
 
-let playerPosX = 270
-let playerPosY = 200
+let playerOne = new Player();
+let startingObstacle = new Obstacles("startingPoint", 600, 375, 460, 260);
 
 document.addEventListener("keydown", function(event) {
-    if (event.code === "Space") {
-        sinusJump(60)
-        
+    switch(event.code) {
+        case "Space":
+            playerOne.jump();
+            break;
+        case "KeyA":
+            playerOne.walk("l");
+            break;
+        case "KeyD":
+            playerOne.walk("r");            
+            break;
+        default:
+            break;
     }
 });
 
 function initCanvas() {
-    // Canvas-Inhalt löschen
+    // Clear Canvas before drawind
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Spieler zeichnen
-    ctx.drawImage(player, playerPosX, playerPosY, player.width, player.height);
-    ctx.drawImage(startingPoint, 100, 475, 460, 260);
+    // Draw player dependent on facingRight
+    if (playerOne.facingRight) {
+        ctx.drawImage(playerOne.player, playerOne.playerPosX, playerOne.playerPosY, playerOne.player.width, playerOne.player.height);
+    } else {
+        ctx.save();
+        ctx.translate(playerOne.playerPosX + playerOne.player.width, playerOne.playerPosY);
+        ctx.scale(-1, 1);
+        ctx.drawImage(playerOne.player, 130, 0, playerOne.player.width, playerOne.player.height);
+        ctx.restore();
+    }
+
+    // Draw obstacle
+    ctx.drawImage(startingObstacle.obstacle, startingObstacle.obstaclePosX, startingObstacle.obstaclePosY, startingObstacle.obstacleWidth, startingObstacle.obstacleHeight);
 
     requestAnimationFrame(initCanvas);
 }
-
-
-function sinusJump(x) {
-    if (x <= 0) return;
-
-    const intervalTime = 500 / x;
-    let count = 0;
-
-    const interval = setInterval(() => {
-        playerPosY = 200 - 100 * Math.sin(count * Math.PI / x);
-
-        count++;
-        if (count >= x) {
-            clearInterval(interval);  // stop the interval after x executions
-        }
-    }, intervalTime);
+window.onload = () => {
+    initCanvas();
 }
-
-initCanvas();
