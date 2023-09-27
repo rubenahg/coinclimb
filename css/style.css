@@ -4,8 +4,6 @@ body {
 }
 
 #gameCanvas {
-    background-image: url(../images/entryBG--1.jpg);
-    background-size: cover;
     max-width: 100%;
     display: block;  /* Entfernt unerwünschten Abstand unter dem Canvas */
     margin: 0 auto;  /* Zentriert das Canvas, falls es schmaler als der Bildschirm ist */

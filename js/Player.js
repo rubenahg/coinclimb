@@ -1,7 +1,7 @@
 class Player {
-    constructor(allObstacles){
+    constructor(allObstacles, gameCanvas){
         this.player = document.getElementById("playerOne");
-        this.canvas = document.getElementById("gameCanvas");
+        this.canvas = gameCanvas;
         this.canvasBottom = this.canvas.clientHeight - this.player.clientHeight
         this.playerPosX = this.canvas.clientWidth / 2
         this.playerPosY = this.canvasBottom
@@ -31,9 +31,9 @@ class Player {
         }
     }
 
-    // A 60 FPS jump animation smoothed with a sine function
-    jump(right, left, startingPosY = this.canvasBottom) {
-        const intervalTime = 500 / 60;
+    // A jump smoothed with a sine function
+    jump(startingPosY = this.canvasBottom) {
+        const intervalTime = 9; //how much ms * 60 should it take for the jump to finish
         
 
 
@@ -50,12 +50,7 @@ class Player {
                 this.playerPosY = startingPosY - this.maxJumpHeight * Math.sin(this.jumpCount * Math.PI / 60);
             }
 
-            
-
-            this.playerPosX += right;
-            this.playerPosX -= left;
             this.jumpCount++;
-            this.isDescending = this.jumpCount > 30
             this.jumpAnimation(this.jumpCount);
             if (this.jumpCount > 60) {
                 this.targetLandingY = undefined;
@@ -83,6 +78,24 @@ class Player {
         }
     }
 
+    /* fallingAnimation() {
+        console.log("playerPosY at start:", this.playerPosY);
 
+        let count = 0;
+        let intervalDelay = 8; // ms per frame
+        let localPlayerPosY = this.playerPosY; // make a copy
+    
+        const fallInterval = setInterval(() => {
+            console.log("Inside interval: playerPosY before:", localPlayerPosY);
+            localPlayerPosY += 1;
+            this.playerPosY += 5
+            console.log("Inside interval: playerPosY after:", localPlayerPosY);
+            count++;
+            if(count >= 60 || localPlayerPosY >= this.canvasBottom){
+                clearInterval(fallInterval);
+                this.playerPosY = this.canvasBottom; // set the main variable back once done
+            }
+        }, intervalDelay);
+    } */
     
 }
