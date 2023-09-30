@@ -7,14 +7,34 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <canvas id="gameCanvas"></canvas>
-    <img src="images/entryBG--2l.jpg" id="bgImage" alt="">
-    <img src="images/player_one.png" id="playerOne" alt="" width="380px" height="305px">
-    <img src="images/base1.png" id="startingPoint" alt="" width="200px" height="315px">
-    <img src="images/base2.png" id="base2" alt="" width="200px" height="315px">
-    <img src="images/starting_point.png" id="firstBasePoint" alt="" width="200px" height="315px">
+    <div id="startScreen">
+        <div class="startScreenContent">
+            <div class="controlls">
+                <img src="images/controlls-2.png" alt="">
+            </div>
+            <div class="startGame">
+                <h1>CoinClimb</h1>
+                <a class="startButton">Start the Game</a>
+            </div>
+        </div>
+    </div>
+    <div class="coinClimb">
+        <canvas id="gameCanvas"></canvas>
+        <img src="images/entryBG--2l.jpg" id="bgImage" alt="">
+        <img src="images/player_one.png" id="playerOne" alt="" width="380px" height="305px">
+        <img src="images/base1.png" id="firstObstacle" alt="" width="200px" height="315px">
+        <img src="images/base2.png" id="base2" alt="" width="200px" height="315px">
+        <img src="images/base2.png" id="base3" alt="" width="200px" height="315px">
+        <img src="images/starting_point.png" id="secondObstacle" alt="" width="200px" height="315px">
+    </div>
+    <div id="gameEndScreen">
+        <h1>Game Over</h1>
+        <h2>Score: <span id="score">0</span></h2>
+        <a class="restartButton" href="" onclick="location.reload()">Restart</a>
+    </div>
 </body>
 <script src="js/Obstacles.js"></script>
 <script src="js/Player.js"></script>
 <script src="js/CoinClimb.js"></script>
+<script src="js/script.js"></script>
 </html>

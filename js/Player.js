@@ -60,7 +60,7 @@ class Player {
 
         const stopTheInterval = () => {
             this.isJumping = false;
-            this.player.src = `../images/player_one.png`
+            this.player.src = `/images/player_one.png`
             this.jumpFrame = 1;
             this.jumpCount = 0;
             clearInterval(interval);
@@ -74,28 +74,8 @@ class Player {
     jumpAnimation(count) {
         if(count % 10 === 0 && this.jumpFrame < 6) {
             this.jumpFrame += 1;
-            this.player.src = `../images/jump/j${this.jumpFrame}.png`
+            this.player.src = `/images/jump/j${this.jumpFrame}.png`
         }
     }
-
-    /* fallingAnimation() {
-        console.log("playerPosY at start:", this.playerPosY);
-
-        let count = 0;
-        let intervalDelay = 8; // ms per frame
-        let localPlayerPosY = this.playerPosY; // make a copy
-    
-        const fallInterval = setInterval(() => {
-            console.log("Inside interval: playerPosY before:", localPlayerPosY);
-            localPlayerPosY += 1;
-            this.playerPosY += 5
-            console.log("Inside interval: playerPosY after:", localPlayerPosY);
-            count++;
-            if(count >= 60 || localPlayerPosY >= this.canvasBottom){
-                clearInterval(fallInterval);
-                this.playerPosY = this.canvasBottom; // set the main variable back once done
-            }
-        }, intervalDelay);
-    } */
     
 }
