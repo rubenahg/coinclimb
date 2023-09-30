@@ -60,7 +60,7 @@ class Player {
 
         const stopTheInterval = () => {
             this.isJumping = false;
-            this.player.src = `/images/player_one.png`
+            this.player.src = `./images/player_one.png`
             this.jumpFrame = 1;
             this.jumpCount = 0;
             clearInterval(interval);
@@ -74,7 +74,7 @@ class Player {
     jumpAnimation(count) {
         if(count % 10 === 0 && this.jumpFrame < 6) {
             this.jumpFrame += 1;
-            this.player.src = `/images/jump/j${this.jumpFrame}.png`
+            this.player.src = `./images/jump/j${this.jumpFrame}.png`
         }
     }
     
