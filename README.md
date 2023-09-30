@@ -27,20 +27,25 @@ CoinClimb is an interactive canvas-based game where players navigate obstacles. 
 - JS Canvas: For rendering game graphics.
 
 ### Project Structure
-- COINCLIMB
--- css
---- style.css
--- images
---- ... all the images ...
--- js
---- CoinClimb.js
---- Obstacles.js
---- Player.js
---- script.js
-- favicon.ico
-- index.html
-- README.md
+```BASH
 
+COINCLIMB
+├── css
+│   ├── style.css
+├── images
+│   ├── ... all the images ...
+│   ├── file22.ext
+│   └── file23.ext
+├── js
+│   ├── CoinClimb.js
+│   ├── Obstacles.js
+│   ├── Player.js
+│   └── script.js
+├── favicon.ico
+├── index.html
+└── README.md
+
+```
 
 ## CoinClimb.js
 - **Canvas and Game Initialization:** Sets up the main game canvas and initializes core game elements.
