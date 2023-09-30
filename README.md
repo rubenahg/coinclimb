@@ -31,11 +31,9 @@ CoinClimb is an interactive canvas-based game where players navigate obstacles. 
 
 COINCLIMB
 ├── css
-│   ├── style.css
+│   └── style.css
 ├── images
-│   ├── ... all the images ...
-│   ├── file22.ext
-│   └── file23.ext
+│   └── ... all the images ...
 ├── js
 │   ├── CoinClimb.js
 │   ├── Obstacles.js
