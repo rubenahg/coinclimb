@@ -31,11 +31,9 @@ CoinClimb is an interactive canvas-based game where players navigate obstacles. 
 
 COINCLIMB
 ├── css
-│   ├── style.css
+│   └── style.css
 ├── images
-│   ├── ... all the images ...
-│   ├── file22.ext
-│   └── file23.ext
+│   └── ... all the images ...
 ├── js
 │   ├── CoinClimb.js
 │   ├── Obstacles.js
@@ -55,7 +53,6 @@ COINCLIMB
 
 ## Obstacles.js
 - **Obstacle Properties (Position, Dimensions):** Defines the key attributes of obstacles, such as their size and location.
-- **Obstacle Rendering:** Manages how obstacles are displayed on the game canvas.
 
 ## Player.js
 - **Player Movement and Jump Mechanics:** Dictates how the player can move and jump in the game environment.
@@ -67,7 +64,7 @@ COINCLIMB
 - **Transition to Game Over State:** Controls the transition to the game-over state when certain conditions are met.
 
 
-Extra Links
+## Extra Links
 
 Slides
 [Link](https://rubenahg.github.io/coinclimb/)
